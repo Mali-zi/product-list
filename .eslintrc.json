@@ -1,0 +1,35 @@
+// {
+//   "extends": [
+//     "react-app",
+//     "prettier"
+//   ],
+//   "plugins": ["prettier"],
+//   "rules": {
+//     "prettier/prettier": "error",
+//     "arrow-body-style": "off",
+//     "prefer-arrow-callback": "off",
+//     "@typescript-eslint/no-explicit-any": "off"
+//   }
+// }
+
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "plugins": [
+    "react", // Allows for manually setting react/* rules
+    "@typescript-eslint", // Allows for manually setting @typescript-eslint/* rules
+    "prettier" // Allows for manually setting prettier/* rules
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

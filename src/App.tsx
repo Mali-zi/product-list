@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import InputForm from './components/InputForm';
+import ProductList from './components/ProductList';
+import { IProduct } from './models';
+
 
 function App() {
+  let initialProducts: IProduct[] = [];
+  const localStorageProducts = localStorage.getItem('products');
+  
+  if (localStorageProducts) {
+    initialProducts = JSON.parse(localStorageProducts);
+  };
+
+  const [products, setProducts] = useState(initialProducts);
+  
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1 className='header'>Список продуктов</h1>
+        <InputForm products={products} setProducts={setProducts} />
+        <ProductList products={products} setProducts={setProducts} />
+      </div>
     </div>
   );
 }
