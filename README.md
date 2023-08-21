@@ -12,3 +12,4 @@
 
 Все действия на сайте происходят без перезагрузки страницы. После перезагрузки страницы состояние списка продуктов сохраняется.
 
+<img width="600" alt="screenshot" src="https://github.com/Mali-zi/product-list/blob/master/assets/screenshot.JPG">
